@@ -42,7 +42,7 @@ public:
         return elem;
     }
     int &  operator[](const int & j){
-    int k =std::fmod(head+j)/size);
+    int k =std::fmod(head+j)/length);
     int  &elem = arr[k];
     return k;}
     // Кол-во элементов в буфере
@@ -51,7 +51,15 @@ public:
         return length;
     }
     void printBuffer(){
-    std::cout<<head<<tail }
+    std::string L=static_cast<std::string>(head);
+    L+=",";
+    L+=static_cast<std::string>(tail);
+    L+=",";
+    for(int i=0;i<length;i++){
+    L+=static_cast<std::string>((*this)[i]);
+    L+=",";
+    }
+    std::cout<<L(0,std::strlen(L)-2); }
     // Ёмкость буфера
     size_t capacity() const
     {
@@ -75,6 +83,7 @@ int main()
     for( int i = 0; i < 10; ++i )
     {
         buf.put( i * 2 );
+        buf.printBuffer();
         if ( buf.size() == buf.capacity() ) {
             std::cout << "---------------" << std::endl;
             while( buf.size() ) {
