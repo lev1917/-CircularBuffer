@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include<cmath>
 class CircularBuffer
 {
 public:
@@ -41,13 +41,17 @@ public:
         --length;
         return elem;
     }
-
+    int &  operator[](const int & j){
+    int k =std::fmod(head+j)/size);
+    int  &elem = arr[k];
+    return k;}
     // Кол-во элементов в буфере
     size_t size() const
     {
         return length;
     }
-
+    void printBuffer(){
+    std::cout<<head<<tail }
     // Ёмкость буфера
     size_t capacity() const
     {
